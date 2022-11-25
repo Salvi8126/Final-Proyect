@@ -1,16 +1,14 @@
 from django.contrib import admin
 from Blog.models import libros_venta
+from bookstore.models import BookStore
 
 
 class LibrosAdmin(admin.ModelAdmin):
     list_display = ("Nombre", "Autor", "Salida", "email")
 
-#class PadreAdmin(admin.ModelAdmin):
-    #list_display = ("Nombre", "Apellido", "Birthday", "profesion", "email")
+class BookstoreAdmin(admin.ModelAdmin):
+    list_display = ("name", "owner", "adress")
 
-#class HermanoAdmin(admin.ModelAdmin):
-    #list_display = ("Nombre", "Apellido", "Birthday", "profesion", "email")
+admin.site.register(libros_venta, LibrosAdmin )
 
-admin.site.register(libros_venta, LibrosAdmin)
-#admin.site.register(Padre, PadreAdmin)
-#admin.site.register(Hermano, HermanoAdmin)
+admin.site.register(BookStore, BookstoreAdmin)
