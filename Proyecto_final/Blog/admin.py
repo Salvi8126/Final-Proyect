@@ -1,6 +1,7 @@
 from django.contrib import admin
 from Blog.models import libros_venta
 from bookstore.models import BookStore
+from employees.models import Employee
 
 
 class LibrosAdmin(admin.ModelAdmin):
@@ -12,3 +13,5 @@ class BookstoreAdmin(admin.ModelAdmin):
 admin.site.register(libros_venta, LibrosAdmin )
 
 admin.site.register(BookStore, BookstoreAdmin)
+
+admin.site.register(Employee)
