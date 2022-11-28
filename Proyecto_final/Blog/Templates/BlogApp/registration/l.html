@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF=8">
+    <title>Iniciar Sesion</title>
+    
+
+</head>
+
+<body>
+    <p>Inicie Sesion!</p>
+<form method="post">
+    {% csrf_token %}
+    <label for="usuario">
+        Username:
+        <input type="text" name="username">
+    </label>
+    <label for="pass">
+        Contraseña:
+        <input type="password" name="password">
+        
+    </label>
+    <button type="submit">Iniciar Sesion</button>
+
+
+
+</form>
+
+
+
+
+<a href="{% url 'salir'%}" %}>Salir</a>
+</body>
+
+
+
+
+
+</html>

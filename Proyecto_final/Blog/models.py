@@ -8,3 +8,5 @@ class libros_venta(models.Model):
     email = models.EmailField(max_length=30, null=True)
     def __str__(self):
         return " %s %s" % (self.Nombre, self.Autor)
+
+
