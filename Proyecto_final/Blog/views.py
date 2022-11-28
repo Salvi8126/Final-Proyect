@@ -1,4 +1,5 @@
 from ast import Return
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -11,23 +12,32 @@ from django.views.generic import View
 #@login_required
 # Create your views here.
 class VRegistro(View):
+    
+    
     def get(self, request):
         form=UserCreationForm
         return render(request, "BlogApp/registration/login.html", {"form":form})
     
     def post(self, request):
+        
         form=UserCreationForm(request.POST)
 
         if form.is_valid():
-            
-            usuario=form.save()
-            
-            login(request, usuario)
-            
-            return redirect("home")
-        
+           
+           usuario=form.save()
+             
+           login(request, usuario)
+             
+           return redirect("/")
         else:
-            pass
+            for msg in form.error_messages:
+                
+              messages.error(request, form.error_messages[msg])
+
+            return render(request, "BlogApp/registration/login.html", {"form":form})
+
+        
+       
 
 
 #def login(request):
