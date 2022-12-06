@@ -1,12 +1,12 @@
 from django.urls import path
 
-from bookstore import views
+from employees import views
 
-app_name = "bookstore"
+app_name = "employees"
 urlpatterns = [
-    path("bookstore", views.StudentListView.as_view(), name="bookstore-list"),
-    path("bookstore/add/", views.StudentCreateView.as_view(), name="bookstore-add"),
-    path("bookstore/<int:pk>/detail/", views.BookstoreDetailView.as_view(), name="bookstore-detail"),
-    path("bookstore/<int:pk>/update/", views.BookstoreUpdateView.as_view(), name="bookstore-update"),
-    path("bookstore/<int:pk>/delete/", views.BookstoreDeleteView.as_view(), name="bookstore-delete"),
+    path("employees", views.EmployeesListView.as_view(), name="employees-list"),
+    path("employees/add/", views.EmployeesCreateView.as_view(), name="employees-add"),
+    path("employees/<int:pk>/detail/", views.EmployeesDetailView.as_view(), name="employees-detail"),
+    path("employees/<int:pk>/update/", views.EmployeesUpdateView.as_view(), name="employees-update"),
+    path("employees/<int:pk>/delete/", views.EmployeesDeleteView.as_view(), name="employees-delete"),
 ]

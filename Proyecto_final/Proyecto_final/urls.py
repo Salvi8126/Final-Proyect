@@ -30,6 +30,9 @@ urlpatterns = [
     #path("salir/",  views.salir , name="salir"),
     path("login.html", VRegistro.as_view(), name="Auteticacion"),
     path("bookstore.html/", bookstore),
+    path("bookstore/", include("bookstore.urls")),
+    path("employees/", include("employees.urls")),
+    path("Blog/", include("Blog.urls")),
 ]
 
 

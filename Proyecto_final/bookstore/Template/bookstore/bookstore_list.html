@@ -1,0 +1,36 @@
+{% extends "BlogApp/home.html" %}
+{% load static %}
+
+{% block my_blog_title %}
+Bookstore
+{% endblock %}
+
+{% block my_blog_header %}
+    <header class="masthead" style="background-image: url('/static/BlogApp/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-15 col-lg-16 col-xl-14">
+                    <div class="site-heading">
+                        <h1>Listado de Librerias</h1>
+                        <span class="subheading">Proyecto Final</span>
+                    </div>
+                </div>
+            </div>
+            <a class="button_custom" href="{% url 'bookstore:bookstore-add' %}">Crear nueva Libreria</a>
+        </div>
+    </header>
+{% endblock %}
+
+{% block my_blog_content %}
+    {% for bookstore in bookstore_list %}
+        <!-- Post preview-->
+        <div class="post-preview">
+            <a href="{% url 'bookstore:bookstore-detail' bookstore.id %}">
+                <h2 class="post-title">Libreria: {{ bookstore.name }}  {{ bookstore.owner }}</h2>
+                <h3 class="post-subtitle">Direccion: {{ bookstore.adress }}</h3>
+            </a>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+    {% endfor %}
+{% endblock %}

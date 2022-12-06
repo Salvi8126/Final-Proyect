@@ -58,8 +58,8 @@ class BookStoreDeleteView(LoginRequiredMixin, DeleteView):
     model = BookStore
     success_url = reverse_lazy("bookstore:bookstore-list")
 
-def BookStore(request):
-   
+class BookStoreListView(ListView):
+    model = BookStore
+    paginate_by = 3
 
 
-    return render(request, "BlogApp/bookstore.html")

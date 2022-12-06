@@ -1,0 +1,36 @@
+{% extends "BlogApp/home.html" %}
+{% load static %}
+
+{% block my_blog_title %}
+Libros Venta
+{% endblock %}
+
+{% block my_blog_header %}
+    <header class="masthead" style="background-image: url('/static/BlogApp/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-15 col-lg-16 col-xl-14">
+                    <div class="site-heading">
+                        <h1>Listado de Libros a la venta</h1>
+                        <span class="subheading">Proyecto Final</span>
+                    </div>
+                </div>
+            </div>
+            <a class="button_custom" href="{% url 'libros_venta:libros_venta-add' %}">Crear nueva venta de libro</a>
+        </div>
+    </header>
+{% endblock %}
+
+{% block my_blog_content %}
+    {% for libros_venta in libros_venta_list %}
+        <!-- Post preview-->
+        <div class="post-preview">
+            <a href="{% url 'libros_venta:libros_venta-detail' libros_venta.id %}">
+                <h2 class="post-title">Libro: {{ libros_venta.Nombre }}  {{ libros_venta.Salida }}</h2>
+                <h3 class="post-subtitle">Autor: {{ libros_venta.Autor }}</h3>
+            </a>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+    {% endfor %}
+{% endblock %}
