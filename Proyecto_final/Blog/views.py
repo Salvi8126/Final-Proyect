@@ -9,8 +9,14 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import View
 
+
+
+
+
 #@login_required
 # Create your views here.
+
+
 class VRegistro(View):
     
     
@@ -39,11 +45,8 @@ class VRegistro(View):
         
        
 
-
-#def login(request):
-
-    #return render(request, "BlogApp/registration/login.html")
 def home(request):
+   
 
 
     return render(request, "BlogApp/home.html")
@@ -58,4 +61,14 @@ def Libros(request):
     Libro= libros_venta.objects.all()
     
     return render(request, "BlogApp/post.html", {"Venta de libros": libros_venta})
-    
+
+def about(request):
+   
+
+
+    return render(request, "BlogApp/about.html")
+
+def bookstore(request):
+
+    return render(request, "BlogApp/bookstore.html")
+

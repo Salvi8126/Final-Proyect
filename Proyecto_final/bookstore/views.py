@@ -6,14 +6,9 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 from bookstore.models import BookStore
 from bookstore.forms import BookStoreForm
 
-
-class BookStoreListView(ListView):
-    model = BookStore
-    paginate_by = 3
 
 
 class BookStoreDetailView(DetailView):
@@ -62,3 +57,9 @@ class BookStoreUpdateView(LoginRequiredMixin, UpdateView):
 class BookStoreDeleteView(LoginRequiredMixin, DeleteView):
     model = BookStore
     success_url = reverse_lazy("bookstore:bookstore-list")
+
+def BookStore(request):
+   
+
+
+    return render(request, "BlogApp/bookstore.html")

@@ -15,15 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from Blog.views import home, Libros, VRegistro
+from Blog.views import home, Libros, VRegistro, about, bookstore
 from Blog import views
+from django.conf.urls.static import static
+from django.conf import settings
 
+app_name = "bookstore"
 urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path("", home),
     path("post.html/", Libros),
-    #path("login.html", login),
-    path("salir/",  views.salir , name="salir"),
-    path("login.html", VRegistro.as_view(), name="Auteticacion")
+    path("about.html", about),
+    #path("salir/",  views.salir , name="salir"),
+    path("login.html", VRegistro.as_view(), name="Auteticacion"),
+    path("bookstore.html/", bookstore),
 ]
+
+
+

@@ -1,6 +1,7 @@
 from django.urls import path
 
 from bookstore import views
+from Blog.views import bookstore
 
 app_name = "bookstore"
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path("bookstore/<int:pk>/detail/", views.BookstoreDetailView.as_view(), name="bookstore-detail"),
     path("bookstore/<int:pk>/update/", views.BookstoreUpdateView.as_view(), name="bookstore-update"),
     path("bookstore/<int:pk>/delete/", views.BookstoreDeleteView.as_view(), name="bookstore-delete"),
+    path("bookstore/", bookstore)
 ]
