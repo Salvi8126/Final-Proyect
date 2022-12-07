@@ -1,44 +1,59 @@
 from django import forms
 
-from bookstore.models import BookStore
+from employees.models import Employee
 
-class BookStoreForm(forms.ModelForm):
+from django import forms
+
+from employees.models import Employee
+
+class EmployeesForms(forms.ModelForm):
     name = forms.CharField(
-        label="Nombre de la Libreria",
+        label="Nombre del empleado",
         max_length=40,
         required=False,
         widget=forms.TextInput(
             attrs={
-                "class": "bookstore-name",
-                "placeholder": "Nombre de la Libreria",
+                "class": "employee-name",
+                "placeholder": "Nombre del empleado",
                 "required": "True",
             }
         ),
     )
     last_name = forms.CharField(
-        label="Nombre del dueño",
+        label="Apellido del empleado",
         max_length=40,
         required=False,
         widget=forms.TextInput(
             attrs={
-                "class": "bookstore-owner-name",
-                "placeholder": "Nombre del dueño",
+                "class": "bookstore-last-name",
+                "placeholder": "Apellido del empleado",
                 "required": "True",
             }
         ),
     )
-    email = forms.CharField(
-        label="Direccion de la libreria",
+    adress = forms.CharField(
+        label="Direccion del empleado",
         required=False,
         widget=forms.TextInput(
             attrs={
-                "class": "bookstore-adress",
+                "class": "employees-adress",
                 "placeholder": "adress",
+                "required": "True",
+            }
+        ),
+    )
+    birth_date = forms.DateField(
+        label="Fecha de nacimiento",
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                "class": "employees-birth-date",
+                "placeholder": "Fecha de nacimiento",
                 "required": "True",
             }
         ),
     )
 
     class Meta:
-        model = BookStore
-        fields = ["name", "owner", "adress"]
+        model = Employee
+        fields = ["name", "last_name", "adress", "birth_date"]
